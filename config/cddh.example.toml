@@ -1,0 +1,38 @@
+# Copy to ./cddh.toml (ignored by git) and fill in the paths on your machine.
+# Relative paths are relative to the folder of the settings file. Each key can also be set with an
+# environment variable CDDH_<KEY>, e.g. CDDH_CLIMATE_DIR.
+
+[paths]
+climate_dir = "/path/to/isimip3b"          # <model>/<scenario>/<var>/<model>_<member>_w5e5_<scenario>_<var>_global_daily_<y0>_<y1>.nc
+cdd_dir = "results/cdd"                    # monthly land-cell CDD/HDD files (written by `cddh cdd` / `cddh hdd`)
+output_dir = "results"
+population = "results/population_05deg.npy"  # written by `cddh population --raster <WorldPop 2020 1 km GeoTIFF>`
+# land_shapefile = "/path/to/ne_110m_admin_0_countries.shp"  # optional: land cells from a country layer instead of
+#                                                            # the bundled land cells of the original runs
+# Bundled with the repository (defaults; uncomment to use other files):
+# land_cells = "data/land_cells/land_cells_05deg.npz"
+# country_grid = "data/country_grid/n_code_05deg.npz"
+# country_table = "data/country_grid/countries.csv"
+# study_regions = "data/study_regions/region9_05deg.npy"
+# study_region_names = "data/study_regions/region9_names.txt"
+
+# hdd_dir = "results/hdd"                  # optional: HDD files elsewhere (default: cdd_dir)
+# region_table_dir = "results/{kind}_region"   # regional tables ({kind} = CDD or HDD)
+# country_table_dir = "results/{kind}_country"
+# decomposition_dir = "results/decomposition"
+
+[files]
+# climate_pattern = "isimip3b"   # or "w5e5", or a custom pattern with {model} {scenario} {var} {y0} {y1}
+# cdd_template = "{model}/{scenario}/{kind}_{temperature}_{method}_{model}_{scenario}_{tag}_monthly.nc"
+#                                 # {kind} CDD/HDD, {temperature} DBT/WBT, {method} Standard/UKMO, {tag} base22C_rh60
+# hdd_template = "..."            # optional, default: cdd_template
+# table_name = "{kind}_{state}.csv"   # {state} = 22C_60p (CDD) or 18C (HDD); also {temp}, {rh}
+
+[run]
+models = ["gfdl-esm4", "ipsl-cm6a-lr", "mpi-esm1-2-hr", "ukesm1-0-ll"]
+scenarios = ["ssp126", "ssp245", "ssp370", "ssp585"]
+historical = "historical"
+# years = [2001, 2100]                # optional: year range to compute and tabulate (default: all years in the files)
+# decomposition_periods = { base = [2010, 2019], end = [2090, 2099] }   # needed by `cddh decompose`
+# hdd_bases = [18.0]                  # HDD base temperature(s), C (dry-bulb)
+# hdd_methods = ["Standard", "UKMO"]  # HDD method(s) computed by `cddh hdd`

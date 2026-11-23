@@ -1,0 +1,16 @@
+# local settings and outputs (keep machine-specific paths out of the repository)
+cddh.toml
+.env
+results/*
+!results/.gitkeep
+# inputs that are not redistributed
+data/climate/
+data/population/
+*.tif
+# python
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+build/
+dist/

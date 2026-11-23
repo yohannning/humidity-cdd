@@ -1,0 +1,18 @@
+# Tested environment (conda-forge). Install: conda env create -f environment.yml && conda activate cddh && pip install -e .
+name: cddh
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.11
+  - numpy=2.2
+  - pandas=2.2
+  - scipy=1.15
+  - netcdf4=1.7
+  - cftime=1.6
+  - geopandas=1.0      # optional: land cells from a country shapefile
+  - shapely=2.0
+  - pyogrio=0.10
+  - rasterio=1.4       # optional: population grid from the WorldPop GeoTIFF
+  - pytest=8.3
+  - pip
