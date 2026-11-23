@@ -196,4 +196,4 @@ by_country = agg.means(annual.values, annual.lat, annual.lon)     # {ISO3: annua
 
 ## Licence
 
-MIT (see `LICENSE`). The bundled country and region grids come from the AIM/Hub degree-day module and Natural Earth.
+MIT (see `LICENSE`). The bundled country grid was built to match the AIM/Hub regional classification, and the study-region grid is based on Natural Earth.
